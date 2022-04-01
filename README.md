@@ -26,6 +26,17 @@ MongoDB лучше подходит для сложных сущностей, к
 
 ## Типы данных в MongoDB и операторы сравнения
 
+Типы данных в MongoDB
+| Тип данных | Форма записи в запросах | Форма записи в моделях | Примеччание |
+| :--------: | :--------------------- | :------------------- | :------- |
+|   string   | User.find({nickname: "Avesels"}) | nickname: string | Условие должно быть в двойных кавычках
+| number     | User.find({age: 25}) | age: number | Условие должно быть цифрой
+| boolean    | User.find({isActive: true}) | isActive: true | Условие должно быть или true или false |
+| array      | User.find({car: car}) | car: [string] <br/> holiday: [number] | В квадратных скобках указан любой из простых типов |
+| date       | User.find({date: Date.now()}) | date: Date.now() | Как и формулы так и записи конкретных дат |
+| ObjectId   | User.find({_id: mongoose.ObjectId}) | UserId: mongoose.Types.ObjectId | Уникальный тип, который должен быть записан через Types |
+| Maps       | User.create({location: {latitude: 50.2, longitude: 50.2}}) | location: { type: Map, of: Number} | Объект, в котором заполнется как и тип самого Map так и из чего он состоит |
+
 ## Условные операторы сравнения
 
 | Оператор сравнения | Условный оператор | Пояснение |
